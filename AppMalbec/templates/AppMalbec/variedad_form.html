@@ -1,0 +1,21 @@
+{% extends "AppMalbec/padre.html" %}
+
+
+{% block titulo %}
+
+Agregar Bebidas
+
+{% endblock %}
+
+{% block pie%}
+
+<form action="" method="POST">{% csrf_token %}
+    <table>
+        {{form.as_p}}
+    </table>
+
+<input type="submit" value="Enviar">
+
+</form>                 
+
+{% endblock %}

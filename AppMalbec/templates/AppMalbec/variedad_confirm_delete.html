@@ -1,0 +1,17 @@
+{% extends "AppMalbec/padre.html" %}
+
+
+{% block titulo %}
+
+Detalles de las Bebidas
+
+{% endblock %}
+
+{% block pie%}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    <p>Borrar {{variedad.marca}} {{variedad.familia}} ? </p>
+    <input type="submit" value="Aceptar">
+</form>
+{% endblock %}

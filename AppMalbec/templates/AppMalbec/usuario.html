@@ -1,0 +1,27 @@
+{% extends "AppMalbec/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+CLIENTES
+                                
+{% endblock %}
+
+{% block pie%}
+
+<h1>Usuario</h1>
+
+{% for usuario in object_list %}
+
+<ul><li>Nombre: {{usuario.nombre}} {{usuario.apellido}} </li>
+<li>Email: {{usuario.email}}</li>
+</ul>
+<a href="{% url 'DetalleUsuario' usuario.id %} ">Ver Detalles</a>
+<a href="{% url 'EditarUsuario' usuario.id %} ">Editar</a>
+<a href="{% url 'BorrarUsuario' usuario.id %} ">Borrar</a>
+{% endfor %}<br>
+
+<a href="{% url 'UsuarioNuevo' %}">Crear Nuevo Usuario</a>
+                                
+{% endblock %}

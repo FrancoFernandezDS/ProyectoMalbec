@@ -1,0 +1,19 @@
+{% extends "AppMalbec/padre.html" %}
+
+
+
+{% block titulo %}
+
+Detalles del Usuario  
+
+{% endblock %}
+
+{% block pie%}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    <p>Borrar {{usuario.nombre}} {{usuario.apellido}} ? </p>
+    <input type="submit" value="Aceptar">
+</form>
+
+{% endblock %}

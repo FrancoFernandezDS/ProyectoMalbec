@@ -1,0 +1,26 @@
+{% extends "AppMalbec/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+VARIEDADES
+                                
+{% endblock %}
+
+{% block pie%}
+<h1>Bebidas</h1>
+{% for variedad in object_list %}
+
+<ul>
+    <li>
+        {{variedad.categoria}} <br> {{variedad.marca}} {{variedad.familia}} <br> Precio: {{variedad.precio}}
+    </li>
+</ul>
+<a href="{% url 'DetalleVariedad' variedad.id %} ">Ver Detalles</a>
+<a href="{% url 'EditarVariedad' variedad.id %} ">Actualizar Datos</a> 
+<a href="{% url 'VariedadBorrar' variedad.id %} ">Borrar</a>
+
+{% endfor %}<br>
+<a href="{% url 'AgregarVariedad' %}">Agregar Nueva Bebida</a>
+{% endblock %}

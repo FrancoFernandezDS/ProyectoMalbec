@@ -1,0 +1,16 @@
+{% extends "AppMalbec/padre.html" %}
+
+
+{% block titulo %}
+
+Detalles de las Bebidas
+
+{% endblock %}
+
+{% block pie%}
+
+<p>{{variedad.categoria}} <br> {{variedad.marca}} {{variedad.familia}}</p>  
+ <br> 
+<p>Precio: {{variedad.precio}}</p>  
+
+{% endblock %}

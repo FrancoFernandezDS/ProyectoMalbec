@@ -1,0 +1,16 @@
+{% extends "AppMalbec/padre.html" %}
+
+
+
+{% block titulo %}
+
+Detalles del Usuario  
+
+{% endblock %}
+
+{% block pie%}
+
+<p>Nombre: {{usuario.nombre}} {{usuario.apellido}} </p>   <br>
+<p>Email: {{usuario.email}}</p>
+
+{% endblock %}

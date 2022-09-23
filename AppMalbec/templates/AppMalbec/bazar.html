@@ -1,0 +1,25 @@
+{% extends "AppMalbec/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+CRISTALERÍA, DECANTADORES Y SACACORCHOS
+                                
+{% endblock %}
+
+{% block pie%}
+<h2>Bazar</h2>
+
+{% for bazar in object_list %}
+<ul><li>
+   {{bazar.tipo_de_producto}} <br> Precio: {{bazar.precio}}
+</li>
+</ul> 
+<a href="{% url 'BazarDetalles' bazar.id %}">Ver Detalles</a>
+<a href="{% url 'EditarBazar' bazar.id %}">Actualizar Bazar</a>
+<a href="{% url 'BorrarBazar' bazar.id %}">Borrar</a>
+{% endfor %}<br>
+<a href="{% url 'AgregarBazar' %}">Agregar Nuevo Bazar</a>
+                                
+{% endblock %}
