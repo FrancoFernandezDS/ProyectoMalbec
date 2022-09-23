@@ -1,2 +1,1 @@
-Mi proyecto se trata de una pajina de bebidas donde no solo te ofrecen eso sino tambien articulos relacionados al bazar. trabajamos con herencia de html y mucho django 
-
+Mi proyecto se trata de una  pagina de bebidas  donde podes manipular los productos de la misma, como agregar , editar  o actualizar y borrar los elementos quue en la pagina 
