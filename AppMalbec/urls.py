@@ -1,5 +1,6 @@
 from django.urls import path
 from AppMalbec.views import *
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path("", inicio, name= "Inicio"),
@@ -17,6 +18,10 @@ urlpatterns = [
     path("variedades/editar/<int:pk>/", VariedadEditar.as_view(), name= "EditarVariedad"),
     path("usuarios/borrar/<int:pk>/", UsuarioBorrar.as_view(), name ="BorrarUsuario"),
     path("bazar/borrar/<int:pk>/", BazarBorrar.as_view(), name= "BorrarBazar"),
-    path("variedades/borrar/<int:pk>/", VariedadBorrar.as_view(), name= "VariedadBorrar"), 
-    
+    path("variedades/borrar/<int:pk>/", VariedadBorrar.as_view(), name= "VariedadBorrar"),
+    path("login/", inicio_sesion, name= "Login"),
+    path("registro/", registro, name= "Registarse"), 
+    path("sobre_mi/", SobreMi, name= "SobreMi" ),
+    path("logout/", LogoutView.as_view(template_name="AppMalbec/logout.html"), name="Logout"),
+    path("editarPerfil/", editarUsuario, name= "EditarPerfil"),
 ]

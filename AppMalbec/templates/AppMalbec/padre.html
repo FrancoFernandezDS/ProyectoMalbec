@@ -20,10 +20,26 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
+                
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+                
+                <a class="navbar-brand" href="{% url 'SobreMi' %}">Sobre Mí</a>
                 <a class="navbar-brand" href="{% url 'Usuarios' %}">Usuario</a>
                 <a class="navbar-brand" href="{% url 'Variedades' %}">Bebidas</a>
                 <a class="navbar-brand" href="{% url 'Bazar' %}">Bazar</a>
+
+                {% if request.user.is_authenticated %}
+
+                <p>Bienvenido {{user}}</p>
+                <a class="navbar-brand" href="{% url 'EditarPerfil' %}">Editar Usuario</a>
+                <a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a>
+            
+                {% else %}
+
+                <a class="btn btn-primary" href="{% url 'Registarse' %}">Registro</a>
+                <a class="btn btn-primary" href="{% url 'Login' %}">Login</a>
+
+                {% endif %}
             </div>
         </nav>
         <!-- Masthead-->
@@ -65,7 +81,7 @@
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             
                             <h3>VINOS Y ESPUMANTES </h3>
-                            <p class="lead mb-0">Te podemos ofrecer diferentes variedades de vinos para degustar</p>
+                            <p class="lead mb-0">Te podemos ofrecer diferentes variedades de vinos, espumantes y otras bebidas para degustar</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -73,7 +89,7 @@
                             
                             <h3>BAZAR</h3>
                             <p class="lead mb-0">Podes encontrar lo mejor en cristalería, decantadores y accesorios.    
-                                Para poder disfrutar un buen vino!!! </p>
+                                Para poder disfrutar un buen vino... </p>
                         </div>
                     </div>
                     <div class="col-lg-4">

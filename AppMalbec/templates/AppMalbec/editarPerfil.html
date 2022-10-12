@@ -1,0 +1,20 @@
+{% extends "AppMalbec/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1> Editar el usuario </h1>
+                             
+{% endblock %}
+
+{% block pie %}
+<form action="" method="POST"> {% csrf_token %}
+
+    {{formulario.as_p}}
+    
+    <button type="submit">Editar</button>
+    
+</form> 
+                     
+{% endblock %}
