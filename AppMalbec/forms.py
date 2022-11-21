@@ -1,7 +1,7 @@
-from dataclasses import fields
 from django import forms
 from django.contrib.auth.forms import  UserCreationForm
 from django.contrib.auth.models import User
+from AppMalbec.models import Avatar
 
 class UsuarioRegistro(UserCreationForm):
     email = forms.EmailField()
@@ -21,3 +21,8 @@ class FormEditar(UserCreationForm):
     class Meta:
         model = User
         fields = ["email","first_name", "last_name", "password1", "password2"]
+
+class AvatarForm(forms.ModelForm):
+    class Meta:
+        model = Avatar
+        fields =["imagen"]

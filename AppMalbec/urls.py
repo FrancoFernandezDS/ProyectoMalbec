@@ -24,4 +24,5 @@ urlpatterns = [
     path("sobre_mi/", SobreMi, name= "SobreMi" ),
     path("logout/", LogoutView.as_view(template_name="AppMalbec/logout.html"), name="Logout"),
     path("editarPerfil/", editarUsuario, name= "EditarPerfil"),
+    path("nuevoAvatar/", agregarAvatar, name= "Avatar"),
 ]

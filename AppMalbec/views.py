@@ -23,7 +23,10 @@ def bazar(request):
     return render(request, "AppMalbec/bazar.html")
 
 def variedades(request):
-    return render(request, "AppMalbec/variedad.html")  
+    bebidas= Variedad.objects.filter()
+    contexto= {"url":bebidas.imagen.url}
+
+    return render(request, "AppMalbec/variedad.html", contexto)  
 
 def SobreMi(request):
     return render(request, "AppMalbec/SobreMi.html")
@@ -90,7 +93,22 @@ def editarUsuario(request):
         })
     return render(request, "AppMalbec/editarPerfil.html", {"formulario":form, "usuario":usuario})
 
+@login_required
+def agregarAvatar(request):
 
+    if request.method == "POST":
+        form = AvatarForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            usuarioNuevo = User.objects.get(username=request.user)
+            avatar = Avatar(usuario=usuarioNuevo, imagen=form.cleaned_data["imagen"])
+            avatar.save()
+
+            return render(request,"AppMalbec/inicio.html")
+    else:
+        form= AvatarForm()
+
+    return render(request, "AppMalbec/nuevoAvatar.html", {"formulario":form})
 
 # Create your views here.
 
@@ -122,7 +140,7 @@ class BazarLista(LoginRequiredMixin,ListView):
 class BazarCrear(LoginRequiredMixin,CreateView):
     model= Bazar
     success_url = "/AppMalbec/bazar/"
-    fields = ["tipo_de_producto", "precio"]
+    fields = ["tipo_de_producto", "precio", "imagen"]
 
 class BazarDetalle(LoginRequiredMixin,DetailView):
     model= Bazar
@@ -130,7 +148,7 @@ class BazarDetalle(LoginRequiredMixin,DetailView):
 class BazarEditar(LoginRequiredMixin,UpdateView):
     model= Bazar
     success_url = "/AppMalbec/bazar/"
-    fields = ["tipo_de_producto", "precio"]
+    fields = ["tipo_de_producto", "precio","imagen"]
 
 class BazarBorrar(LoginRequiredMixin,DeleteView):
     model= Bazar
@@ -143,7 +161,7 @@ class VariedadesLista(LoginRequiredMixin,ListView):
 class VariedadAgregar(LoginRequiredMixin,CreateView):
     model = Variedad
     success_url = "/AppMalbec/variedades/"
-    fields = ["categoria", "marca", "precio", "familia"]
+    fields = ["categoria", "marca", "precio", "familia", "imagen"]
 
 class VariedadDetalle(LoginRequiredMixin,DetailView):
     model= Variedad
@@ -151,7 +169,7 @@ class VariedadDetalle(LoginRequiredMixin,DetailView):
 class VariedadEditar(LoginRequiredMixin,UpdateView):
     model = Variedad
     success_url = "/AppMalbec/variedades/"
-    fields = ["categoria", "marca", "precio", "familia"]
+    fields = ["categoria", "marca", "precio", "familia", "imagen"]
 
 class VariedadBorrar(LoginRequiredMixin,DeleteView):
     model = Variedad

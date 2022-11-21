@@ -12,10 +12,12 @@ class Variedad(models.Model):
     marca= models.CharField(max_length=60)
     precio= models.IntegerField()
     familia= models.CharField(max_length=50)
+    imagen = models.ImageField(upload_to="bebidas", null=True, blank= True)
 
 class Bazar(models.Model):
     tipo_de_producto = models.CharField(max_length=50)
     precio= models.IntegerField()
+    imagen = models.ImageField(upload_to="bazar", null=True,blank= True)
 
 class Avatar(models.Model):
     usuario= models.ForeignKey(User, on_delete=models.CASCADE)

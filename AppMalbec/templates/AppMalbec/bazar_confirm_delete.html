@@ -9,7 +9,7 @@ Detalles del Bazar
 {% endblock %}
 
 {% block pie%}
-<form action="" method="POST"> {% csrf_token %}
+<form action="" method="POST"enctype="multipart/form-data"> {% csrf_token %}
 
     <p>Borrar {{bazar.tipo_de_producto}} ? </p>
     <input type="submit" value="Aceptar">

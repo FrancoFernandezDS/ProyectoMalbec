@@ -9,7 +9,7 @@ Detalles de las Bebidas
 
 {% block pie%}
 
-<form action="" method="POST"> {% csrf_token %}
+<form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
 
     <p>Borrar {{variedad.marca}} {{variedad.familia}} ? </p>
     <input type="submit" value="Aceptar">

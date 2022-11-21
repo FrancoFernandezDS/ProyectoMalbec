@@ -14,7 +14,11 @@ VARIEDADES
 
 <ul>
     <li>
-        {{variedad.categoria}} <br> {{variedad.marca}} {{variedad.familia}} <br> Precio: {{variedad.precio}}
+        {{variedad.categoria}} <br> {{variedad.marca}} {{variedad.familia}} <br> Precio: {{variedad.precio}} <br>
+        
+        {% with user.variedad_set.first as bebida %}
+                <img src="p.imagen.url" alt="No hay imagen" style="max-width: 75px ;" enctype="multipart/form-data">
+                {% endwith %}
     </li>
 </ul>
 <a href="{% url 'DetalleVariedad' variedad.id %} ">Ver Detalles</a>

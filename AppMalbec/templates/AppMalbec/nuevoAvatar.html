@@ -1,0 +1,18 @@
+{% extends "AppMalbec/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 style="color:black"> Crear Avatar </h1>
+
+<form action="" method="POST"enctype="multipart/form-data">{% csrf_token %}
+
+    {{formulario.as_p}}
+    
+    <button type="submit">Crear</button>
+    
+    </form>
+
+                             
+{% endblock %}

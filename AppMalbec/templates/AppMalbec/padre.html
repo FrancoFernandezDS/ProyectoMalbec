@@ -30,7 +30,16 @@
 
                 {% if request.user.is_authenticated %}
 
-                <p>Bienvenido {{user}}</p>
+                <p>Bienvenido/a <br>{{user}}</p>
+                {% with user.avatar_set.first as miAvatar %}
+
+                {% if miAvatar %}
+                <img src="{{miAvatar.imagen.url}} " alt="No hay imagen" style="max-width: 75px ;">
+
+                {% endif %}
+
+                {% endwith %}
+
                 <a class="navbar-brand" href="{% url 'EditarPerfil' %}">Editar Usuario</a>
                 <a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a>
             
